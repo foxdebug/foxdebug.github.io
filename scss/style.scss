@@ -1,0 +1,260 @@
+@use "./components/button";
+@use "./components/proper_image";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #fb5500;
+    scroll-behavior: smooth;
+}
+
+body {
+    height: 100vh;
+    background-color: #111111;
+    color: #fff;
+    font-family: "Nunito", sans-serif;
+}
+
+a {
+    color: var(--primary-color);
+}
+
+header {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem 1.2rem;
+    position: sticky;
+    display: flex;
+
+    .logo {
+        display: flex;
+        align-items: flex-end;
+        font-size: 1.2rem;
+        line-height: 1;
+        font-weight: bold;
+
+        img {
+            width: 50px;
+            margin-right: 5px;
+        }
+    }
+
+    .main-nav-open-btn {
+        all: unset;
+        height: 28px;
+        cursor: pointer;
+        display: none;
+
+        svg {
+            pointer-events: none;
+        }
+    }
+
+    .main-nav {
+        margin-left: 80px;
+        display: flex;
+        align-items: flex-end;
+
+        a {
+            margin-right: 0.5rem;
+            padding: 5px 12px 0;
+            text-decoration: none;
+            color: #fff;
+            position: relative;
+            line-height: 1;
+
+            &::before,
+            &::after {
+                content: "";
+                display: block;
+                height: 1.5px;
+                width: 0%;
+                background-color: var(--primary-color);
+                position: absolute;
+                transition: width 250ms;
+            }
+
+            &::before {
+                right: 0;
+                top: 0;
+            }
+
+            &::after {
+                left: 0;
+                bottom: -5px;
+            }
+
+            &:hover {
+                color: var(--primary-color);
+
+                &::before,
+                &::after {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        justify-content: space-between;
+
+        .main-nav-open-btn {
+            display: block;
+        }
+
+        .main-nav {
+            flex-direction: column;
+            align-items: flex-start;
+            width: 300px;
+            height: 100vh;
+            padding: 2rem 1rem 0;
+            background-color: #000;
+            position: fixed;
+            top: 0;
+            right: 0;
+            transform: translateX(100%);
+            transition: transform 300ms;
+
+            a {
+                margin-bottom: 1rem;
+            }
+
+            &--active {
+                // display: block;
+                transform: translateX(0%);
+            }
+        }
+    }
+}
+
+.page {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#home {
+    height: calc(100vh - 80px);
+    padding: 0 2rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .text {
+        width: 100%;
+        max-width: 400px;
+        padding: 80px 0;
+
+        h1 {
+            line-height: 1.2;
+        }
+
+        p {
+            margin: 1rem 0;
+            color: #eee;
+        }
+    }
+
+    .image {
+        flex-grow: 1;
+        text-align: center;
+
+        img {
+            width: 100%;
+            max-width: 600px;
+        }
+    }
+
+    @media screen and (max-width: 1023px) {
+        flex-direction: column;
+
+        .text {
+            max-width: none;
+            height: auto;
+        }
+
+        .image {
+            flex-grow: 0;
+        }
+    }
+
+    @media screen and (orientation: landscape) and (max-height: 699px) {
+        height: auto;
+    }
+}
+
+#products-and-services {
+    padding: 2rem;
+
+    h2 {
+        text-align: center;
+    }
+
+    > img {
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        margin: 2rem auto 0;
+    }
+
+    #products {
+        max-width: 450px;
+        margin: 2rem auto;
+
+        .product {
+            display: flex;
+            border-radius: 5px;
+            background-color: #212121;
+            padding: 10px;
+
+            p {
+                margin: 4px 0;
+                line-height: 1.05;
+            }
+
+            &__image {
+                width: 120px;
+                margin-right: 0.8rem;
+            }
+        }
+    }
+
+    #services p {
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 1.15rem;
+        font-weight: 600;
+    }
+}
+
+#contact-us {
+    padding: 2rem;
+    text-align: center;
+
+    h2 {
+        margin-bottom: 1rem;
+    }
+}
+
+footer {
+    padding: 2rem;
+    background-color: #212121;
+    text-align: center;
+
+    .social {
+        margin-bottom: 1rem;
+
+        a {
+            display: inline-block;
+            margin: 0 3px;
+        }
+
+        img {
+            width: 24px;
+        }
+    }
+}

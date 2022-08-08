@@ -1,0 +1,8 @@
+{
+  "name": "foxdebug",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "scss-watch": "sass --no-source-map --style compressed --watch scss:css"
+  }
+}

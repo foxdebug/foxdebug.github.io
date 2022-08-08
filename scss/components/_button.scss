@@ -1,0 +1,15 @@
+.btn {
+    display: inline-block;
+    padding: 6px 0.8rem;
+    border: none;
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+        filter: brightness(92%);
+    }
+}
